@@ -1,0 +1,10 @@
+---
+- name: transfer and execute script
+  hosts: localhost
+  tasks:
+           
+           - name: run script
+             ansible.builtin.script: /home/vasile/Desktop/hw_devops.sh
+             register: output
+           - debug:
+                    var: output.stdout_lines
