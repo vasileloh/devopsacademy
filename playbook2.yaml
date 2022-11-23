@@ -1,0 +1,19 @@
+---
+- name: create a user. directory and instal wget, curl and htop
+  hosts: localhost
+  become: yes
+  tasks: 
+        - name: create user and home directory
+          ansible.builtin.user:
+             name: devops-ansible
+             group: sudo
+             home: /home/devops-ansible
+        - name: install wget
+          apt:
+           name: wget
+        - name: install curl
+          apt:
+           name: curl
+        - name: install htop
+          apt:
+           name: htop
